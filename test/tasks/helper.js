@@ -13,7 +13,7 @@ exports.createWatchServer = function (options) {
     // 创建文件监控server实例
     var server = new WatchServer({
         port: options.port,
-        configFile: exports.getConfigFile(options.configFile)
+        configFile: options.configFile
     });
     server.start();
 
@@ -59,8 +59,12 @@ exports.editCSSResourceFile = function (file, edit) {
     );
 };
 
-exports.getConfigFile = function (file) {
-    return path.join(fixturesBaseDir, file || 'watchdog-config.js');
+exports.getConfigFile = function (basePath, file) {
+    if (arguments.length === 1) {
+        file = basePath;
+        basePath = null;
+    }
+    return path.join(basePath || fixturesBaseDir, file || 'watchdog-config.js');
 };
 
 exports.backupFile = function (path) {

@@ -13,7 +13,7 @@ module.exports = {
     debug: true,
 
     client: {
-//        messageTypes: ['command']
+        messageTypes: ['command', 'reloadPage']
     },
 
     /**
@@ -23,7 +23,7 @@ module.exports = {
      */
     files: {
         include: [
-            'test/fixtures/resource/js/*'
+            'test/fixtures/resource/**/*'
         ],
         exclude: []
     }
