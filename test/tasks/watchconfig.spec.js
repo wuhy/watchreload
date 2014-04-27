@@ -1,3 +1,4 @@
+var expect = require('expect.js');
 var helper = require('./helper');
 var http = require('http');
 var Buffer = require('buffer').Buffer;
@@ -13,7 +14,7 @@ describe('Watch files with basePath', function () {
     it('should file change event fire', function (done) {
         var jsFile = 'test-edit2.js';
         watchServer.once('fileAll', function (event, filePath) {
-            expect((new RegExp(jsFile + '$')).test(filePath)).toBe(true);
+            expect((new RegExp(jsFile + '$')).test(filePath)).to.be(true);
 
             done();
         });
@@ -31,8 +32,8 @@ describe('Watch files with basePath', function () {
                 }).on('end', function () {
                         var script = Buffer.concat([data]).toString();
 
-                        expect(script).toContain('__customBrowserReloadClient__');
-                        expect(script).toContain('__browserReloadClientPlugin__');
+                        expect(script).to.contain('__customBrowserReloadClient__');
+                        expect(script).to.contain('__browserReloadClientPlugin__');
 
                         done();
                     }

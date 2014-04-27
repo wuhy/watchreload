@@ -1,3 +1,4 @@
+var expect = require('expect.js');
 var helper = require('./helper');
 var protocolCommand = require('../../lib/server/protocol').Command;
 
@@ -16,15 +17,15 @@ describe('watch server event', function () {
 
     it('must fire start event when start', function () {
         setTimeout(function () {
-            expect(hasStartEvent).toBe(true);
-        }, 10);
+            expect(hasStartEvent).to.be(true);
+        }, 1);
     });
 
     it('JS file change must fire fileAll and send reloadPage event', function (done) {
         var doneCount = 0;
         watchServer.once('fileAll', function (event, filePath) {
-            expect((new RegExp(jsFile + '$')).test(filePath)).toBe(true);
-            expect(event).toEqual('changed');
+            expect((new RegExp(jsFile + '$')).test(filePath)).to.be(true);
+            expect(event).to.eql('changed');
 
             (++doneCount === 2) && done();
         });

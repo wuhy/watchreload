@@ -60,7 +60,7 @@ module.exports = {
 watchdog start
 ```
 
-### HTML页面livereload
+### 添加脚本
 
 在要进行livereload的html页面body后面引入如下脚本：
 
@@ -103,7 +103,7 @@ module.exports = {
     client: {
         // 设置浏览器器端脚本文件名
         name: 'livereload.js'
-    }，
+    },
 
     files: {
         include: [
@@ -116,9 +116,9 @@ module.exports = {
 
 ## 自定义 livereload 文件
 
-项目中对于样式开发，如果使用 `less` 开发，可能会有很多文件，但 `html` 中引用的样式可能就
-只有一个 `main.less`，该样式文件会 `@import` 其它样式文件，为了确保样式文件修改之后，也能实现
-只是重新 `reload css`，可以在 `watchdog-config.js` 添加如下配置：
+项目中对于样式开发，如果使用 `less` 开发，可能会有很多文件，但 `html` 中引用的样式可能就只有
+一个文件，比如 `main.less`，该样式文件会 `@import` 其它样式文件。为了确保样式文件修改之后，也能
+实现只是重新 `reload css`，可以在 `watchdog-config.js` 添加如下配置：
 
 ```javascript
 
@@ -149,7 +149,7 @@ module.exports = {
     }
 ```
 
-## 其它设置选项介绍
+## 其它配置选项
 
 TODO
 

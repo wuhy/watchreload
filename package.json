@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "pretest": "jshint . > jshint.report",
-    "test": "jasmine-node test/tasks/"
+    "test": "mocha test/tasks/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "connect": "^2.14.4",
-    "jasmine-node": "^1.14.3"
+    "mocha": "^1.18.2",
+    "expect.js": "^0.3.1"
   },
   "dependencies": {
     "chalk": "^0.4.0",
