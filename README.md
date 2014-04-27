@@ -7,7 +7,6 @@ watchreload
 > Yet another livereload tool for web development
 
 watchreload 是用来监控web项目中静态资源变化，同时内置支持实现浏览器同步更新。
-
 基于 [gaze@0.5.1](https://github.com/shama/gaze) 实现文件变化监听，
 基于 [socket.io](http://socket.io/) 实现浏览器和监控服务器通信。
 
