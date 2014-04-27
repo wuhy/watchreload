@@ -1,5 +1,5 @@
 {
-  "name": "watchdog",
+  "name": "watchreload",
   "version": "0.1.0",
   "description": "Yet Another Live reload server and client",
   "main": "lib/index.js",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wuhy/watchdog.git"
+    "url": "https://github.com/wuhy/watchreload.git"
   },
   "bugs": {
-    "url": "https://github.com/wuhy/watchdog/issues"
+    "url": "https://github.com/wuhy/watchreload/issues"
   },
   "keywords": [
     "websocket",
@@ -36,7 +36,7 @@
     "minimist": "0.0.8"
   },
   "bin": {
-    "watchdog": "./bin/watchdog"
+    "watchreload": "./bin/watchreload"
   },
   "readmeFilename": "README.md"
 }

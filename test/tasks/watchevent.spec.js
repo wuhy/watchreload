@@ -6,7 +6,7 @@ describe('watch server event', function () {
 
     var watchServer = helper.createWatchServer({
         port: 12346,
-        configFile: helper.getConfigFile('watchdog-config.js')
+        configFile: helper.getConfigFile('watch-config.js')
     });
     var jsFile = 'test-edit.js';
 

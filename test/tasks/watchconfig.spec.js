@@ -8,7 +8,7 @@ describe('Watch files with basePath', function () {
     var port = 12347;
     var watchServer = helper.createWatchServer({
         port: port,
-        configFile: helper.getConfigFile('watchdog-config-basepath.js')
+        configFile: helper.getConfigFile('watch-config-basepath.js')
     });
 
     it('should file change event fire', function (done) {

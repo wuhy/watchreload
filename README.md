@@ -1,12 +1,12 @@
 
-watchdog
+watchreload
 ========
 
-[![Build Status](https://travis-ci.org/wuhy/watchdog.svg?branch=master)](https://travis-ci.org/wuhy/watchdog) [![Dependencies Status](https://david-dm.org/wuhy/watchdog.png)](https://david-dm.org/wuhy/watchdog)
+[![Build Status](https://travis-ci.org/wuhy/watchreload.svg?branch=master)](https://travis-ci.org/wuhy/watchreload) [![Dependencies Status](https://david-dm.org/wuhy/watchreload.png)](https://david-dm.org/wuhy/watchreload)
 
 > Yet another livereload tool for web development
 
-watchdog 是用来监控web项目中静态资源变化，同时内置支持实现浏览器同步更新。
+watchreload 是用来监控web项目中静态资源变化，同时内置支持实现浏览器同步更新。
 
 基于 [gaze@0.5.1](https://github.com/shama/gaze) 实现文件变化监听，
 基于 [socket.io](http://socket.io/) 实现浏览器和监控服务器通信。
@@ -29,7 +29,7 @@ watchdog 是用来监控web项目中静态资源变化，同时内置支持实�
 watchdog是基于node.js，因此得确保已经安装了node，如果已确认安装，执行如下命令：
 
 ```shell
-npm install watchdog -g
+npm install watchreload -g
 ```
 
 ### 初始化
@@ -37,10 +37,10 @@ npm install watchdog -g
 在要监控的web项目根目录下执行如下命令：
 
 ```shell
-watchdog init
+watchreload init
 ```
 
-执行结束，默认会生成 `watchdog-config.js` 配置文件，下述是一个最简单的配置例子，只需配置要监听
+执行结束，默认会生成 `watch-config.js` 配置文件，下述是一个最简单的配置例子，只需配置要监听
 的静态资源文件即可：
 
 ```javascript
@@ -57,7 +57,7 @@ module.exports = {
 ### 启动
 
 ```shell
-watchdog start
+watchreload start
 ```
 
 ### 添加脚本
@@ -94,7 +94,7 @@ exports.getLocations = function () {
 };
 ```
 
-由于上述注入的 `livereload` 脚本名称为 `livereload.js`，因此需要修改下 `watchdog-config.js`
+由于上述注入的 `livereload` 脚本名称为 `livereload.js`，因此需要修改下 `watch-config.js`
 配置文件，加上 `client.name` 属性：
 
 ```javascript
@@ -118,7 +118,7 @@ module.exports = {
 
 项目中对于样式开发，如果使用 `less` 开发，可能会有很多文件，但 `html` 中引用的样式可能就只有
 一个文件，比如 `main.less`，该样式文件会 `@import` 其它样式文件。为了确保样式文件修改之后，也能
-实现只是重新 `reload css`，可以在 `watchdog-config.js` 添加如下配置：
+实现只是重新 `reload css`，可以在 `watch-config.js` 添加如下配置：
 
 ```javascript
 
@@ -136,7 +136,7 @@ module.exports = {
 
 ## 自定义任务
 
-在 `watchdog-config.js` 添加如下配置：
+在 `watch-config.js` 添加如下配置：
 
 ```javascript
     watch: {

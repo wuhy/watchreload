@@ -64,7 +64,7 @@ exports.getConfigFile = function (basePath, file) {
         file = basePath;
         basePath = null;
     }
-    return path.join(basePath || fixturesBaseDir, file || 'watchdog-config.js');
+    return path.join(basePath || fixturesBaseDir, file || 'watchreload-config.js');
 };
 
 exports.backupFile = function (path) {
