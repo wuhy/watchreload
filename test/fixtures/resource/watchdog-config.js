@@ -16,6 +16,14 @@ module.exports = {
         messageTypes: ['command', 'reloadPage']
     },
 
+    watch: {
+
+        fileAll: function (event, filePath, fileTypeInfo) {
+            console.log('file:' + event + ', on: ' + filePath);
+            console.log('file Info: ' + JSON.stringify(fileTypeInfo));
+        }
+    },
+
     /**
      * 要监控的文件sdsd
      *
