@@ -1,4 +1,3 @@
-require('should');
 var helper = require('./helper');
 var protocolCommand = require('../../lib/server/protocol').Command;
 
@@ -8,7 +7,7 @@ describe('watch server event', function () {
         port: 12346,
         configFile: helper.getConfigFile('watchdog-config.js')
     });
-    var jsFile = 'test.js';
+    var jsFile = 'test-edit.js';
 
     var hasStartEvent = false;
     watchServer.once('start', function () {
@@ -16,14 +15,16 @@ describe('watch server event', function () {
     });
 
     it('must fire start event when start', function () {
-        hasStartEvent.should.be.ok;
+        setTimeout(function () {
+            expect(hasStartEvent).toBe(true);
+        }, 10);
     });
 
     it('JS file change must fire fileAll and send reloadPage event', function (done) {
         var doneCount = 0;
         watchServer.once('fileAll', function (event, filePath) {
-            (new RegExp(jsFile + '$')).test(filePath).should.ok;
-            event.should.equal('changed');
+            expect((new RegExp(jsFile + '$')).test(filePath)).toBe(true);
+            expect(event).toEqual('changed');
 
             (++doneCount === 2) && done();
         });
@@ -43,9 +44,10 @@ describe('watch server event', function () {
     });
 
     it('CSS file change must send cssReload event to client', function (done) {
-        var cssFile = 'main.css';
+        var cssFile = 'test-edit.css';
         watchServer.once('command', function (data) {
-            if ((new RegExp(cssFile + '$')).test(cssFile)
+            console.log('edit css: ' + data);
+            if ((new RegExp(cssFile + '$')).test(data.path)
                 && data.type === protocolCommand.reloadCSS
                 ) {
                 done();

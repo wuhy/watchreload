@@ -1,0 +1,31 @@
+@media all and (min-width:1000px){
+    body {
+        background-color: #ecc;
+        background: url('../img/b.JPEG') no-repeat;
+    }
+    .box {
+        font-size: 14px;
+    }
+}
+
+.header {
+    background: url('../img/2.png') no-repeat;
+}
+.box {
+    width: 250px;
+    background-color: #89ac11;
+    color: #fff;
+    padding: 9px;
+
+    background-image: url(../img/mtop-left.gif), url(../img/mtop-right.gif), url(../img/mbottom-left.gif), url(../img/mtop-right.gif);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: top left, top right, bottom left, bottom right;
+}
+
+.box2 {
+    margin: 10px 0;
+    width: 250px;
+    border-image: url(../img/corners.gif) 25% 25% 25% 25% / 25px round round;
+    -moz-border-image: url(../img/corners.gif) 25% 25% 25% 25% / 25px round round;
+    -webkit-border-image: url(../img/corners.gif) 25% 25% 25% 25% / 25px round round;
+}

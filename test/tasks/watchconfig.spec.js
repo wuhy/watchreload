@@ -1,6 +1,4 @@
-require('should');
 var helper = require('./helper');
-var pathUtil = require('path');
 var http = require('http');
 var Buffer = require('buffer').Buffer;
 
@@ -9,14 +7,13 @@ describe('Watch files with basePath', function () {
     var port = 12347;
     var watchServer = helper.createWatchServer({
         port: port,
-        configFile: helper.getConfigFile(pathUtil.join(__dirname, '..'), 'watchdog-config.js')
+        configFile: helper.getConfigFile('watchdog-config-basepath.js')
     });
 
-
     it('should file change event fire', function (done) {
-        var jsFile = 'test2.js';
+        var jsFile = 'test-edit2.js';
         watchServer.once('fileAll', function (event, filePath) {
-            (new RegExp(jsFile + '$')).test(filePath).should.ok;
+            expect((new RegExp(jsFile + '$')).test(filePath)).toBe(true);
 
             done();
         });
@@ -34,8 +31,8 @@ describe('Watch files with basePath', function () {
                 }).on('end', function () {
                         var script = Buffer.concat([data]).toString();
 
-                        script.indexOf('__customBrowserReloadClient__').should.be.above(0);
-                        script.indexOf('__browserReloadClientPlugin__').should.be.above(0);
+                        expect(script).toContain('__customBrowserReloadClient__');
+                        expect(script).toContain('__browserReloadClientPlugin__');
 
                         done();
                     }
