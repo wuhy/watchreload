@@ -66,6 +66,7 @@
         "module": true,
         "exports": true,
         "__dirname": true,
-        "process": true
+        "process": true,
+        "Buffer": true
     }
 }
