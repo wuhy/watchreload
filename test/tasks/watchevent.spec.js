@@ -8,6 +8,16 @@ describe('watch server event', function () {
         port: 12346,
         configFile: helper.getConfigFile('watch-config.js')
     });
+
+    /**
+     * 重写发送给客户端消息，用于test是否正确发送了消息
+     *
+     * @override
+     */
+    watchServer.sendCommandMessage = function (data) {
+        this.emit('command', data);
+    };
+
     var jsFile = 'test-edit.js';
 
     var hasStartEvent = false;

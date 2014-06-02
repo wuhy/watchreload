@@ -10,7 +10,13 @@ module.exports = {
      */
     port: 12345,
 
-    debug: true,
+    autoCompile: {
+        less: true
+    },
+
+    logLevel: 'info',
+
+//    openPath: 'a/b.js',
 
     client: {
         messageTypes: ['command', 'reloadPage']

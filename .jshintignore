@@ -3,4 +3,5 @@ coverage/**/*
 .idea/**/*
 bin/**/*
 test/**/*
+lib/client/browser-reload.min.js
 

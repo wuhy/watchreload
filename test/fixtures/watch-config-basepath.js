@@ -12,8 +12,6 @@ module.exports = {
         }
     },
 
-    debug: true,
-
     client: {
         name: 'livereload.js',
         path: 'resource/livereload.js',
