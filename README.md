@@ -247,6 +247,67 @@ wr start --open --base xx/xx/webroot
 
 可以参考 `watch-default-config.js` 文件。
 
+## 其它
 
+### 客户端脚本注入
 
+如果通过 `watchserver` 启动 server 访问 web 站点，`watchreload` 会自动对 `html` 资源文件注入 `watchreload` 客户端脚本。
 
+如果不想通过 `watchserver` 来访问 web 站点，要求自行注入脚本到 `html` 资源文件，以确保 server 和 web 站点能进行通信。
+
+1. 手动注入脚本
+
+    对 web 项目访问的 `html` 页面 `</body>` 前添加如下脚本：
+    
+    ```html
+    <script src="http://localhost:12345/browser-reload.js"></script>
+    ```
+    
+    上述脚本 `localhost` 可以改成本机的 IP 地址，port 端口号如果没有定制修改，默认就是 `12345` 。
+    
+2. 自动注入脚本
+    
+    如果你使用 [edp webserver](https://github.com/ecomfe/edp-webserver)，在 `edp-webserver-config.js` 文件里加上类似于如下配置：
+    
+    ```javascript
+    exports.getLocations = function () {
+        return [
+            {
+                location: '/',
+                handler: home( 'index.html' )
+            },
+            {
+                // 为 html 文件添加 livereload 脚本
+                location: /\/index\.html/,
+                handler: [
+                    file(),
+                    livereload({
+                        ip: 'localhost',
+                        port: 12345
+                    })
+                ]
+            }
+            // ...
+        ];
+    };
+    ```
+    
+    由于上述注入的 `livereload` 脚本名称为 `livereload.js`，因此需要修改下 `watch-config.js`
+    配置文件，加上 `client.name` 属性，确保能正确加载客户端脚本：
+    
+    ```javascript
+    module.exports = {
+    
+        client: {
+            // 设置浏览器器端脚本文件名
+            name: 'livereload.js'
+        },
+    
+        files: {
+            include: [
+                'webroot/src/**/*'
+            ],
+            exclude: []
+        }
+    };
+    ```
