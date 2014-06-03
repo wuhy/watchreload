@@ -52,7 +52,7 @@ watchreload 是用来监控web项目中静态资源变化，同时内置支持�
     wr start --open
     ```
 
-上面两步可以合成异步执行，直接执行如下命令：
+上面两步可以合成一步执行，直接执行如下命令：
 ```shell
 wr start --open --base xx/xx/webroot
 ```
@@ -146,13 +146,13 @@ wr start --open --base xx/xx/webroot
     }
     ```
 
-* 启动自动打开浏览器，默认 false
+* 自动打开浏览器，默认 false
     
     ```javascript
     autoOpen: false
     ```
 
-* 自动打开的浏览器
+* 自动打开的浏览器类型
 
     ```javascript
     /**
@@ -169,18 +169,18 @@ wr start --open --base xx/xx/webroot
     openBrowser: 'chrome'
     ```
 
-* 自动打开浏览器访问的 path
+* 自动打开的浏览器默认访问的 path
 
     ```javascript
     /**
-     * 自动打开时候，要自动打开的路径，`autoOpen` 为true，该配置项才有效。
+     * 自动打开时候，要自动访问的路径，`autoOpen` 为true，该配置项才有效。
      */
     openPath: './main.html?uid=98'
     ```
         
 * 自定义 livereload 文件
 
-    项目中对于样式开发，如果使用 `less` 开发，可能会有很多文件，但 `html` 中引用的样式可能就只有一个文件，比如 `main.less`，该样式文件会 `@import` 其它样式文件。为了确保样式文件修改之后，也能实现只是重新 `reload css`，可以在 `watch-config.js` 添加如下配置：
+    项目中对于样式开发，如果使用 `less` 开发，可能会有很多文件，但 `html` 中引用的样式可能就只有一个文件，比如 `main.less`，该样式文件会 `@import` 其它样式文件。为了确保样式文件修改之后，也能实现只是重新 `reload css`，可以在 `watch-config.js` 添加类似如下的配置：
     
     ```javascript
     /**
