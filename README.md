@@ -267,6 +267,8 @@ wr start --open --base xx/xx/webroot
     
 2. 自动注入脚本
     
+    使用浏览器扩展自动注入，参见<a href="https://github.com/wuhy/watchreload-extensions" target="_blank">watchreload extension</a>。
+    
     如果你使用 [edp webserver](https://github.com/ecomfe/edp-webserver)，在 `edp-webserver-config.js` 文件里加上类似于如下配置：
     
     ```javascript
