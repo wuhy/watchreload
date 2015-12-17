@@ -26,11 +26,16 @@ describe('Watch files with basePath', function () {
         http.get('http://localhost:' + port + '/livereload.js', function (res) {
             if (res.statusCode == 200) {
                 res.setEncoding('utf8');
-                var data = [];
+                var chunks = [];
+                var size = 0;
                 res.on('data',function (chunk) {
-                    data[data.length] = chunk;
+                    size += chunk.length;
+                    if (!Buffer.isBuffer(chunk)) {
+                        chunk = new Buffer(chunk);
+                    }
+                    chunks.push(chunk);
                 }).on('end', function () {
-                        var script = Buffer.concat([data]).toString();
+                        var script = Buffer.concat(chunks, size).toString('utf-8');
 
                         expect(script).to.contain('__customBrowserReloadClient__');
                         expect(script).to.contain('__browserReloadClientPlugin__');
