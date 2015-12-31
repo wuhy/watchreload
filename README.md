@@ -2,7 +2,7 @@
 watchreload
 ========
 
-[![Build Status](https://travis-ci.org/wuhy/watchreload.svg?branch=master)](https://travis-ci.org/wuhy/watchreload) [![Dependencies Status](https://david-dm.org/wuhy/watchreload.png)](https://david-dm.org/wuhy/watchreload)
+[![Build Status](https://travis-ci.org/wuhy/watchreload.svg?branch=master)](https://travis-ci.org/wuhy/watchreload) [![Dependency Status](https://david-dm.org/wuhy/watchreload.svg)](https://david-dm.org/wuhy/watchreload)
 
 > Yet another livereload tool for web development
 
