@@ -1,10 +1,10 @@
 {
   "name": "watchreload",
-  "version": "0.2.2",
-  "description": "Yet Another Live reload server and client",
-  "main": "lib/index.js",
+  "version": "0.3.0",
+  "description": "Watchreload command line tool",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha test/tasks/*.spec.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -16,28 +16,15 @@
   "keywords": [
     "websocket",
     "livereload",
+    "watchreload",
+    "cli",
     "watch"
   ],
   "author": "sparklewhy@gmail.com",
   "license": "MIT",
-  "devDependencies": {
-    "mocha": "^1.18.2",
-    "expect.js": "^0.3.1"
-  },
   "dependencies": {
     "chalk": "^1.1.1",
-    "connect": "^3.4.0",
-    "connect-compiler": "^0.1.3",
-    "connect-injector": "^0.4.2",
-    "gaze": "^0.5.2",
-    "http-proxy": "^1.12.0",
-    "less": "^2.5.3",
-    "lodash": "^3.10.1",
-    "minimist": "1.2.0",
-    "opn": "^3.0.3",
-    "serve-static": "^1.10.0",
-    "socket.io": "^0.9.17",
-    "useragent": "^2.1.8"
+    "minimist": "^1.2.0"
   },
   "bin": {
     "watchreload": "./bin/watchreload",
